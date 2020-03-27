@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Styling for app container */
+
+.container {
+  width: 350px;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  margin: 30px auto 0;
+  padding: 10px 20px;
+}
+
+/* Styling for header/nav area */
+
+.add-bookmark-btn,
+.dropdown-menu,
+.bookmark-rating {
+  display: inline-block;
+}
+
+.dropdown-menu fieldset {
+  border: none;
+  margin-left: 60px;
+}
+
+/* Styling for bookmark list */
+
+.bookmark-list {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border: 1px solid lightgray;
+  margin: 15px auto 15px;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.bookmark-title {
+  margin: 0;
+  padding: 10px 20px;
+  background-color: lightgray;
+}
+
+.bookmark-desc {
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+.visit-site-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 30px;
+}
+
+.bookmark-rating {
+  padding: 10px 20px;
+}
+
+.delete-bookmark-btn {
+  display: inline-block;
+}
