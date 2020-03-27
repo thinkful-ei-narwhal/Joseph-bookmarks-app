@@ -7,63 +7,37 @@
 </head>
 <body>
 
+  <header>
+    <h1 class="app-title">Bookmark.r</h1>
+  </header>
+
   <main class="container" role="main">
-    <header>
-      <h1 class="app-title">Bookmark.r</h1>
-    </header>
-    <button class="add-bookmark-btn">
-      <span>Add Bookmark</span>
-    </button>
-    <form class="dropdown-menu">
+  
+    <form class="add-bookmark-form">
       <fieldset>
-         <p>
-            <label>Filter</label>
-            <select id = "myList">
-              <option value = "1">1 Star+</option>
-              <option value = "2">2 Stars+</option>
-              <option value = "3">3 Stars+</option>
-              <option value = "4">4 Stars+</option>
-              <option value = "5">5 Stars+</option>
-            </select>
-         </p>
+        <legend>Add a Bookmark</legend>
+        <label for="bookmark-title">Pick a title</label>
+        <input type="text" name="bookmark-title" id="bookmark-title" placeholder="type here...  " required>
+        <label for="bookmark-url">Enter a URL</label>
+        <input type="url" name="bookmark-url" id="bookmark-url" placeholder="include 'https' protocol" required>
+        <label for="bookmark-desc">Enter a description</label>
+        <input type="text" name="bookmark-desc" id="bookmark-desc" textwrap>
       </fieldset>
-   </form>
-    <ul class="bookmark-list">
-      <li>
-        <h2 class="bookmark-title">Title</h2>
-        <p class="bookmark-desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua.
-        </p>
-        <button class="visit-site-btn">
-          <span>Visit site</span>
-        </button>
-        <div class="bookmark-rating">
-          5-star-rating soon
-        </div>
-        <button class="delete-bookmark-btn">
-          <span>Delete</span>
-        </button>
-      </li>
-      <li>
-        <h2 class="bookmark-title">Title</h2>
-        <div class="bookmark-rating">
-          5-star-rating soon
-        </div>
-        <button class="delete-bookmark-btn">
-          <span>Delete</span>
-        </button>
-      </li>
-      <li>
-        <h2 class="bookmark-title">Title</h2>
-        <div class="bookmark-rating">
-          5-star-rating soon
-        </div>
-        <button class="delete-bookmark-btn">
-          <span>Delete</span>
-        </button>
-      </li>
-    </ul>
+      <fieldset class="star-rating">
+        <legend>How many stars?</legend>
+        <label for="one-star">1</label><br>
+        <input type="radio" id="one-star" name="one-star" value="1">
+        <label for="two-stars">2</label><br>
+        <input type="radio" id="two-stars" name="two-stars" value="2">
+        <label for="three-stars">3</label>
+        <input type="radio" id="three-stars" name="three-stars" value="3">
+        <label for="four-stars">4</label>
+        <input type="radio" id="four-stars" name="four-stars" value="4">
+        <label for="five-stars">5</label>
+        <input type="radio" id="five-stars" name="five-stars" value="5">
+      </fieldset>
+    </form>
+
   </main>
 
 </body>

@@ -5,29 +5,26 @@ import cuid from 'cuid';
 
 // Create Object functions
 
-function create(title, rating, url, description) {
+function create(id, title, url, desc, rating) {
   return {
-    id: cuid(),
+    id,
     title,
-    rating,
     url,
-    description,
+    desc,
+    rating,
     expanded: false
   }
-}
-
+};
 
 
 // Generate HTML functions
 
 function generateHome() {
   return `
-  <header>
-    <h1 class="app-title">Bookmark.r</h1>
-  </header>
   <button class="add-bookmark-btn">
     <span>Add Bookmark</span>
   </button>
+
   <form class="dropdown-menu">
     <fieldset>
         <p>
@@ -42,10 +39,11 @@ function generateHome() {
         </p>
     </fieldset>
   </form>
-  <ul class="bookmark-list">
 
+  <ul class="bookmark-list">
+    
   </ul>`
-}
+};
 
 function generateCollapsedBookmarkItem() {
   return `
@@ -58,7 +56,7 @@ function generateCollapsedBookmarkItem() {
       <span>Delete</span>
     </button>
   </li>`
-}
+};
 
 function generateExpandedBookmarkItem() {
   return `
@@ -78,11 +76,16 @@ function generateExpandedBookmarkItem() {
       <span>Delete</span>
     </button>
   </li>`
-}
+};
+
+function generateAddBookmarkForm() {
+  return `
+  `
+};
 
 export default {
   create,
   generateHome,
   generateCollapsedBookmarkItem,
   generateExpandedBookmarkItem
-}
+};
