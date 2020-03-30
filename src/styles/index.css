@@ -92,6 +92,9 @@ li {
 
 .add-bookmark-form-btn {
   border: none;
+  display: block;
+  margin: 15px auto;
+  padding: 10px 25px;
 }
 
 .input-info input {

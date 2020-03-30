@@ -71,12 +71,12 @@ const generateAddBookmarkForm = () => {
         <label for="bookmark-url">Enter a URL</label>
         <input type="url" name="bookmark-inputs" id="bookmark-url" placeholder="include 'https' protocol" required>
         <label for="bookmark-desc">Enter a description</label>
-        <textarea id="bookmark-desc" cols="33" rows="5"></textarea>
+        <textarea id="bookmark-desc" cols="33" rows="5" placeholder="Enter a brief description..."></textarea>
       </fieldset>
       <fieldset class="star-rating">
         <legend>Pick a star rating</legend>
         <label for="one-star">1</label>
-        <input type="radio" id="one-star" name="stars" value="1">
+        <input type="radio" id="one-star" name="stars" value="1" required>
         <label for="two-stars">2</label>
         <input type="radio" id="two-stars" name="stars" value="2">
         <label for="three-stars">3</label>

@@ -5,6 +5,7 @@ import item from './item';
 import views from './views';
 import $ from 'jquery';
 import store from './store';
+import api from './api';
 
 const handleAddBookmarkButton = () => {
   $('main').on('click', '.add-bookmark-btn', (event) => {
@@ -19,8 +20,13 @@ const handleAddBookmarkForm = () => {
     const title = $('#bookmark-title').val();
     const url = $('#bookmark-url').val();
     const desc = $('#bookmark-desc').val();
-    const starRating = $("input[name='stars']:checked").val();
-    alert(`${title}: @ ${url}; ${desc} & ${starRating}`);
+    const rating = $("input[name='stars']:checked").val();
+    
+    api.createItem(title, url, desc, rating)
+      .then((newItem) => {
+        store.addItem(newItem)
+        render();
+      })
   });
 };
 
@@ -42,8 +48,11 @@ const handleExpandBookmarkItem = function() {
 const handleDeleteBookmarkItem = () => {
   $('main').on('click', '.delete-bookmark-btn', (event) => {
     let id = getItemIdFromElement(event.currentTarget);
-    store.findAndDelete(id)
-    render();
+    api.deleteItem(id)
+      .then(() => {
+        store.findAndDelete(id);
+        render();
+      });
   });
 };
 
