@@ -1,7 +1,7 @@
 /**This document will handle all the event clicks from the DOM
  * & will also render the list
  */
-import item from './item';
+
 import views from './views';
 import $ from 'jquery';
 import store from './store';
@@ -27,6 +27,15 @@ const handleAddBookmarkForm = () => {
         store.addItem(newItem)
         render();
       })
+  });
+};
+
+const handleRatingFilter = () => {
+  $('main').on('change', 'select', () => {
+    let filterValue = $('option:selected').val();
+    store.filter = filterValue;
+    let filteredItems = store.bookmarks.filter(item => item.rating >= store.filter);
+    console.log(filteredItems);
   });
 };
 
@@ -58,15 +67,18 @@ const handleDeleteBookmarkItem = () => {
 
 const render = () => {
   let items = [...store.bookmarks];
+  // let filteredItems = items.filter(item => item.rating >= store.filter)
   const bookmarkItemsString = views.generateBookmarkItemsString(items);
   $('main').html(views.generateHome(bookmarkItemsString));
+  console.log(filteredItems);
 };
 
 const bindEventListeners = () => {
   handleAddBookmarkButton(),
   handleAddBookmarkForm(),
   handleExpandBookmarkItem(),
-  handleDeleteBookmarkItem()
+  handleDeleteBookmarkItem(),
+  handleRatingFilter()
 };
 
 export default {

@@ -2,19 +2,18 @@
  * will be displayed to the user
  */
 
- import item from './item';
- import store from './store'; 
+import store from './store'; 
 
- const generateHome = (bookmarks) => {
+const generateHome = (bookmarks) => {
   return `
   <button class="add-bookmark-btn">
     <span>Add Bookmark</span>
   </button>
 
   <form class="dropdown-menu">
-    <fieldset>
+    <fieldset class="rating-filter">
         <label>Filter</label>
-        <select id = "myList">
+        <select id="rating-list">
           <option value = "1">1 Star+</option>
           <option value = "2">2 Stars+</option>
           <option value = "3">3 Stars+</option>
