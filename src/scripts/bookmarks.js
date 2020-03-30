@@ -24,9 +24,18 @@ const handleAddBookmarkForm = () => {
   });
 };
 
+const getItemIdFromElement = function(item) {
+  return $(item)
+    .closest(".bookmark-item")
+    .data("item-id");
+};
+
 const handleExpandBookmarkItem = function() {
   $('main').on('click', '.bookmark-title',  (event) => {
-    
+    let id = getItemIdFromElement(event.currentTarget);
+    let selectedBookmark = store.findById(id);
+    selectedBookmark.expanded = !selectedBookmark.expanded;
+    render();
   });
 };
 

@@ -31,7 +31,7 @@
 
 const generateCollapsedBookmarkItem = (bookmark) => {
   return `
-  <li class="collapsed-list">
+  <li class="bookmark-item collapsed-list" data-item-id="${bookmark.id}">
     <h2 class="bookmark-title">${bookmark.title}</h2>
     <div class="bookmark-rating">
       ${bookmark.rating}
@@ -42,18 +42,18 @@ const generateCollapsedBookmarkItem = (bookmark) => {
   </li>`
 };
 
-const generateExpandedBookmarkItem = () => {
+const generateExpandedBookmarkItem = (bookmark) => {
   return `
-  <li class="expanded-list">
-    <h2 class="bookmark-title">${store.bookmarks[0].title}</h2>
+  <li class="bookmark-item expanded-list" data-item-id="${bookmark.id}">
+    <h2 class="bookmark-title">${bookmark.title}</h2>
     <p class="bookmark-desc">
-      ${store.bookmarks[0].desc}
+      ${bookmark.desc}
     </p>
     <button class="visit-site-btn">
       <span>Visit site</span>
     </button>
     <div class="bookmark-rating">
-      ${store.bookmarks[0].rating}
+      ${bookmark.rating}
     </div>
     <button class="delete-bookmark-btn">
       <span>Delete</span>
@@ -92,8 +92,9 @@ const generateAddBookmarkForm = () => {
     </form>`
 };
 
+
 const generateBookmarkItemsString = function(bookmarkList) {
-  const items = bookmarkList.map(item => generateCollapsedBookmarkItem(item));
+  const items = bookmarkList.map(item => !item.expanded ? generateCollapsedBookmarkItem(item) : generateExpandedBookmarkItem(item));
   return items.join("");
 }
 

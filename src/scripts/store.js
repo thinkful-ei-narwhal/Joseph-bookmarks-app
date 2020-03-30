@@ -17,7 +17,7 @@ const bookmarks = [
     url: 'https://www.yahoo.com',
     desc: 'This is the former front page of the web...',
     rating: 3,
-    expanded: false
+    expanded: true
   },
 ];
 
@@ -25,11 +25,16 @@ let addingBookmark = false;
 let error = null;
 let filter = 0;
 
+const findById = (id) => {
+  return bookmarks.find(item => item.id === id);
+};
+
 
 
 export default {
   bookmarks,
   addingBookmark,
   error,
-  filter
+  filter,
+  findById
 }
