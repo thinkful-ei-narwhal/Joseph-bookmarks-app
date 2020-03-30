@@ -5,7 +5,6 @@ import api from './scripts/api';
 import './styles/index.css';
 
 function main() {
-
   bookmarks.bindEventListeners(),
   bookmarks.render()
 };

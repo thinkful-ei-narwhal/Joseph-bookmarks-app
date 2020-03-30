@@ -51,6 +51,7 @@ li {
   margin: 0;
   padding: 10px 20px;
   background-color: lightgray;
+  cursor: pointer;
 }
 
 .bookmark-desc {
@@ -82,4 +83,20 @@ li {
 .add-bookmark-form legend {
   font-size: 26px;
   text-align: center;
+}
+
+.input-info input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.star-rating {
+  text-align: center;
+}
+
+.star-rating label {
+  display: inline-block;
+  cursor: pointer;
+  /* width: 50px; */
 }
