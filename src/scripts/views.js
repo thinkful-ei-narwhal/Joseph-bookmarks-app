@@ -50,7 +50,7 @@ const generateExpandedBookmarkItem = (bookmark) => {
       ${bookmark.desc}
     </p>
     <button class="visit-site-btn">
-      <span>Visit site</span>
+      <a href="${bookmark.url}" target="_blank">Visit site</a>
     </button>
     <div class="bookmark-rating">
       ${bookmark.rating}

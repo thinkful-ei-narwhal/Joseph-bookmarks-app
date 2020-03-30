@@ -2,7 +2,7 @@
  * data for our app
  */
 
-const bookmarks = [
+let bookmarks = [
   {
     id: 101010,
     title: 'Google',
@@ -19,6 +19,14 @@ const bookmarks = [
     rating: 3,
     expanded: true
   },
+  {
+    id: 101012,
+    title: 'Bing',
+    url: 'https://www.bing.com',
+    desc: 'Who uses bing?',
+    rating: 2,
+    expanded: false
+  },
 ];
 
 let addingBookmark = false;
@@ -29,6 +37,9 @@ const findById = (id) => {
   return bookmarks.find(item => item.id === id);
 };
 
+function findAndDelete(id) {
+  this.bookmarks = this.bookmarks.filter(item => item.id !== id);
+}
 
 
 export default {
@@ -36,5 +47,6 @@ export default {
   addingBookmark,
   error,
   filter,
-  findById
+  findById,
+  findAndDelete
 }

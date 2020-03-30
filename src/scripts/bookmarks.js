@@ -39,6 +39,14 @@ const handleExpandBookmarkItem = function() {
   });
 };
 
+const handleDeleteBookmarkItem = () => {
+  $('main').on('click', '.delete-bookmark-btn', (event) => {
+    let id = getItemIdFromElement(event.currentTarget);
+    store.findAndDelete(id)
+    render();
+  });
+};
+
 const render = () => {
   let items = [...store.bookmarks];
   const bookmarkItemsString = views.generateBookmarkItemsString(items);
@@ -48,7 +56,8 @@ const render = () => {
 const bindEventListeners = () => {
   handleAddBookmarkButton(),
   handleAddBookmarkForm(),
-  handleExpandBookmarkItem()
+  handleExpandBookmarkItem(),
+  handleDeleteBookmarkItem()
 };
 
 export default {
