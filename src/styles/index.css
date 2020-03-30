@@ -20,6 +20,11 @@
   margin-left: 30px;
 }
 
+.app-title a {
+  text-decoration: none;
+  color: black;
+}
+
 .add-bookmark-btn,
 .dropdown-menu,
 .bookmark-rating {
@@ -83,6 +88,10 @@ li {
 .add-bookmark-form legend {
   font-size: 26px;
   text-align: center;
+}
+
+.add-bookmark-form-btn {
+  border: none;
 }
 
 .input-info input {

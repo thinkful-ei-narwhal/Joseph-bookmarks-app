@@ -24,20 +24,22 @@ const handleAddBookmarkForm = () => {
   });
 };
 
-const handleExpandBookmarkItem = () => {
+const handleExpandBookmarkItem = function() {
   $('main').on('click', '.bookmark-title',  (event) => {
-
+    
   });
+};
+
+const render = () => {
+  let items = [...store.bookmarks];
+  const bookmarkItemsString = views.generateBookmarkItemsString(items);
+  $('main').html(views.generateHome(bookmarkItemsString));
 };
 
 const bindEventListeners = () => {
   handleAddBookmarkButton(),
   handleAddBookmarkForm(),
   handleExpandBookmarkItem()
-};
-
-const render = () => {
-
 };
 
 export default {

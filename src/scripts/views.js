@@ -2,9 +2,10 @@
  * will be displayed to the user
  */
 
- import item from './item'
+ import item from './item';
+ import store from './store'; 
 
- const generateHome = () => {
+ const generateHome = (bookmarks) => {
   return `
   <button class="add-bookmark-btn">
     <span>Add Bookmark</span>
@@ -12,30 +13,28 @@
 
   <form class="dropdown-menu">
     <fieldset>
-        <p>
-          <label>Filter</label>
-          <select id = "myList">
-            <option value = "1">1 Star+</option>
-            <option value = "2">2 Stars+</option>
-            <option value = "3">3 Stars+</option>
-            <option value = "4">4 Stars+</option>
-            <option value = "5">5 Stars+</option>
-          </select>
-        </p>
+        <label>Filter</label>
+        <select id = "myList">
+          <option value = "1">1 Star+</option>
+          <option value = "2">2 Stars+</option>
+          <option value = "3">3 Stars+</option>
+          <option value = "4">4 Stars+</option>
+          <option value = "5">5 Stars+</option>
+        </select>
     </fieldset>
   </form>
 
   <ul class="bookmark-list">
-    
+    ${bookmarks}
   </ul>`
 };
 
-const generateCollapsedBookmarkItem = () => {
+const generateCollapsedBookmarkItem = (bookmark) => {
   return `
   <li class="collapsed-list">
-    <h2 class="bookmark-title">Title</h2>
+    <h2 class="bookmark-title">${bookmark.title}</h2>
     <div class="bookmark-rating">
-      5-star-rating soon
+      ${bookmark.rating}
     </div>
     <button class="delete-bookmark-btn">
       <span>Delete</span>
@@ -46,16 +45,15 @@ const generateCollapsedBookmarkItem = () => {
 const generateExpandedBookmarkItem = () => {
   return `
   <li class="expanded-list">
-    <h2 class="bookmark-title">Title</h2>
+    <h2 class="bookmark-title">${store.bookmarks[0].title}</h2>
     <p class="bookmark-desc">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua.
+      ${store.bookmarks[0].desc}
     </p>
     <button class="visit-site-btn">
       <span>Visit site</span>
     </button>
     <div class="bookmark-rating">
-      5-star-rating soon
+      ${store.bookmarks[0].rating}
     </div>
     <button class="delete-bookmark-btn">
       <span>Delete</span>
@@ -94,9 +92,15 @@ const generateAddBookmarkForm = () => {
     </form>`
 };
 
+const generateBookmarkItemsString = function(bookmarkList) {
+  const items = bookmarkList.map(item => generateCollapsedBookmarkItem(item));
+  return items.join("");
+}
+
 export default {
   generateHome,
   generateCollapsedBookmarkItem,
   generateExpandedBookmarkItem,
-  generateAddBookmarkForm
+  generateAddBookmarkForm,
+  generateBookmarkItemsString
 };
