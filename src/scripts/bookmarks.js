@@ -34,6 +34,7 @@ const handleRatingFilter = () => {
   $('main').on('change', 'select', () => {
     let filterValue = $('option:selected').val();
     let bookmarkList = store.filterList(filterValue);
+    $('.bookmark-list').html(views.generateBookmarkItemsString(bookmarkList));
     console.log(bookmarkList);
   });
 };
@@ -66,10 +67,8 @@ const handleDeleteBookmarkItem = () => {
 
 const render = () => {
   let items = [...store.bookmarks];
-  
   const bookmarkItemsString = views.generateBookmarkItemsString(items);
   $('main').html(views.generateHome(bookmarkItemsString));
-  console.log(filteredItems);
 };
 
 const bindEventListeners = () => {
