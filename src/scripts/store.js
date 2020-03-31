@@ -14,12 +14,27 @@ const findById = (id) => {
 
 function addItem(itemName) {
   this.bookmarks.push(itemName);
-}
+};
 
 function findAndDelete(id) {
   this.bookmarks = this.bookmarks.filter(item => item.id !== id);
-}
+};
 
+function filterList(rating) {
+  this.filter = rating;
+  let filteredItems = this.bookmarks.filter(item => item.rating >= this.filter);
+  return filteredItems;
+};
+
+
+// const handleRatingFilter = () => {
+//   $('main').on('change', 'select', () => {
+//     let filterValue = $('option:selected').val();
+//     store.filter = filterValue;
+//     let filteredItems = store.bookmarks.filter(item => item.rating >= store.filter);
+//     console.log(filteredItems);
+//   });
+// };
 
 export default {
   bookmarks,
@@ -27,6 +42,7 @@ export default {
   error,
   filter,
   findById,
+  addItem,
   findAndDelete,
-  addItem
+  filterList
 }

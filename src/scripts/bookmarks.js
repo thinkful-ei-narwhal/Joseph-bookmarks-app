@@ -33,9 +33,8 @@ const handleAddBookmarkForm = () => {
 const handleRatingFilter = () => {
   $('main').on('change', 'select', () => {
     let filterValue = $('option:selected').val();
-    store.filter = filterValue;
-    let filteredItems = store.bookmarks.filter(item => item.rating >= store.filter);
-    console.log(filteredItems);
+    let bookmarkList = store.filterList(filterValue);
+    console.log(bookmarkList);
   });
 };
 
@@ -67,7 +66,7 @@ const handleDeleteBookmarkItem = () => {
 
 const render = () => {
   let items = [...store.bookmarks];
-  // let filteredItems = items.filter(item => item.rating >= store.filter)
+  
   const bookmarkItemsString = views.generateBookmarkItemsString(items);
   $('main').html(views.generateHome(bookmarkItemsString));
   console.log(filteredItems);
