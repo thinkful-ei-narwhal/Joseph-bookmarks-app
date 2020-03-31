@@ -60,14 +60,18 @@ body {
 }
 
 .add-bookmark-btn span,
-.visit-site-btn a,
 .add-bookmark-form-btn  {
   color: #F5E9E2;
 }
 
 .dropdown-menu fieldset {
   border: none;
-  margin-left: 10px;
+}
+
+.rating-filter select {
+  font-family: 'Raleway';
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Styling for bookmark list */
@@ -101,12 +105,15 @@ body {
 
 .visit-site-btn {
   display: block;
+  color: #F5E9E2;
   margin: 20px auto;
-  padding: 8px 30px;
+  padding: 10px 15px;
+  width: 120px;
+  text-align: center;
 }
 
 .bookmark-rating {
-  padding: 10px 20px;
+  padding: 15px 25px;
 }
 
 .delete-bookmark-btn {
@@ -116,7 +123,12 @@ body {
   border: 2px solid #20323D;
   position: relative;
   left: 20px;
+  bottom: 0;
 }
+
+/* Styling for 5 star rating */
+
+
 
 /* Styling for Add Bookmark form */
 
@@ -134,7 +146,8 @@ body {
   margin-top: 10px;
 }
 
-.input-info input {
+.input-info input,
+.input-info textarea {
   display: block;
   width: 100%;
   margin: 10px 0;

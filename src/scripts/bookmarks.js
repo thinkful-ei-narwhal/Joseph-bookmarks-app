@@ -31,7 +31,8 @@ const handleAddBookmarkForm = () => {
 };
 
 const handleRatingFilter = () => {
-  $('main').on('change', 'select', () => {
+  $('main').on('change', 'select', (event) => {
+    event.preventDefault();
     let filterValue = $('option:selected').val();
     let bookmarkList = store.filterList(filterValue);
     $('.bookmark-list').html(views.generateBookmarkItemsString(bookmarkList));

@@ -12,7 +12,7 @@ const generateHome = (bookmarks) => {
   <form class="dropdown-menu">
     <fieldset class="rating-filter">
         <label>Filter</label>
-        <select id="rating-list">
+        <select class="rating-list">
           <option value = "1">1 Star+</option>
           <option value = "2">2 Stars+</option>
           <option value = "3">3 Stars+</option>
@@ -32,6 +32,9 @@ const generateCollapsedBookmarkItem = (bookmark) => {
   <li class="bookmark-item collapsed-list" data-item-id="${bookmark.id}">
     <h2 class="bookmark-title">${bookmark.title}</h2>
     <div class="bookmark-rating">
+      <div class="rating">
+        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+      </div>
       ${bookmark.rating}
     </div>
     <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
@@ -45,9 +48,7 @@ const generateExpandedBookmarkItem = (bookmark) => {
     <p class="bookmark-desc">
       ${bookmark.desc}
     </p>
-    <button class="visit-site-btn">
-      <a href="${bookmark.url}" target="_blank">Visit site</a>
-    </button>
+    <a href="${bookmark.url}" target="_blank" class="visit-site-btn">Visit site</a>
     <div class="bookmark-rating">
       ${bookmark.rating}
     </div>
