@@ -2,7 +2,6 @@
  * will be displayed to the user
  */
 
-import store from './store'; 
 
 const generateHome = (bookmarks) => {
   return `
@@ -35,9 +34,7 @@ const generateCollapsedBookmarkItem = (bookmark) => {
     <div class="bookmark-rating">
       ${bookmark.rating}
     </div>
-    <button class="delete-bookmark-btn">
-      <span>Delete</span>
-    </button>
+    <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
   </li>`
 };
 
@@ -54,9 +51,7 @@ const generateExpandedBookmarkItem = (bookmark) => {
     <div class="bookmark-rating">
       ${bookmark.rating}
     </div>
-    <button class="delete-bookmark-btn">
-      <span>Delete</span>
-    </button>
+    <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
   </li>`
 };
 
@@ -70,7 +65,7 @@ const generateAddBookmarkForm = () => {
         <label for="bookmark-url">Enter a URL</label>
         <input type="url" name="bookmark-inputs" id="bookmark-url" placeholder="include 'https' protocol" required>
         <label for="bookmark-desc">Enter a description</label>
-        <textarea id="bookmark-desc" cols="33" rows="5" placeholder="Enter a brief description..."></textarea>
+        <textarea id="bookmark-desc" cols="39" rows="5" placeholder="Enter a brief description..." style="resize:none"></textarea>
       </fieldset>
       <fieldset class="star-rating">
         <legend>Pick a star rating</legend>

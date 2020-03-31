@@ -7,22 +7,37 @@ a {
   color: black;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: #2987BD;
+  font-family: 'Raleway';
+}
+
 /* Styling for app container */
 
 .container {
   width: 350px;
-  border: 2px solid lightgray;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 20px auto 0;
-  padding: 10px 20px;
+  padding: 30px 30px;
+  background-color: #FFFFFF;
 }
 
 /* Styling for header/nav area */
 
 .app-title {
-  font-family: sans-serif;
+  font-family: 'Playfair Display';
+  font-size: 36px;
+  font-style: italic;
   margin-top: 30px;
   margin-left: 30px;
+  color: #F5E9E2;
+  background-color: #1E628A;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .add-bookmark-btn,
@@ -31,9 +46,28 @@ a {
   display: inline-block;
 }
 
+    /* Also has styling for button in 'add-bookmark-form' */
+.add-bookmark-btn,
+.visit-site-btn,
+.add-bookmark-form-btn {
+  border: none;
+  border-radius: 5px;
+  font-family: 'Raleway';
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: #20323D;
+}
+
+.add-bookmark-btn span,
+.visit-site-btn a,
+.add-bookmark-form-btn  {
+  color: #F5E9E2;
+}
+
 .dropdown-menu fieldset {
   border: none;
-  margin-left: 60px;
+  margin-left: 10px;
 }
 
 /* Styling for bookmark list */
@@ -45,8 +79,9 @@ a {
   padding: 0;
 }
 
-li {
-  border: 1px solid lightgray;
+.bookmark-item {
+  border: 1px solid #20323D;
+  border-radius: 5px;
   margin: 15px auto 15px;
   width: 100%;
   padding-bottom: 10px;
@@ -55,7 +90,7 @@ li {
 .bookmark-title {
   margin: 0;
   padding: 10px 20px;
-  background-color: lightgray;
+  background-color: #68A5C8;
   cursor: pointer;
 }
 
@@ -75,26 +110,28 @@ li {
 }
 
 .delete-bookmark-btn {
-  display: inline-block;
+  background-color: rgb(187, 224, 247);
+  padding: 6px;
+  border-radius: 50%;
+  border: 2px solid #20323D;
+  position: relative;
+  left: 20px;
 }
 
 /* Styling for Add Bookmark form */
 
 .add-bookmark-form fieldset {
   border: none;
-  margin-top: 10px;
 }
 
 .add-bookmark-form legend {
-  font-size: 26px;
+  font-size: 28px;
   text-align: center;
+  font-family: 'Playfair Display';
 }
 
-.add-bookmark-form-btn {
-  border: none;
-  display: block;
-  margin: 15px auto;
-  padding: 10px 25px;
+.input-info legend {
+  margin-top: 10px;
 }
 
 .input-info input {
@@ -103,12 +140,31 @@ li {
   margin: 10px 0;
 }
 
+.input-info textarea,
+.input-info input {
+  padding: 8px;
+  font-family: 'Raleway';
+  border: 2px solid lightgray;
+  border-radius: 5px;
+}
+
+.input-info legend {
+  margin-bottom: 20px;
+}
+
 .star-rating {
   text-align: center;
+  margin-top: 20px;
 }
 
 .star-rating label {
   display: inline-block;
   cursor: pointer;
   /* width: 50px; */
+}
+.add-bookmark-form-btn {
+  border: none;
+  display: block;
+  margin: 25px auto 10px;
+  padding: 10px 25px;
 }
