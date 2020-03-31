@@ -35,7 +35,6 @@ const handleRatingFilter = () => {
     let filterValue = $('option:selected').val();
     let bookmarkList = store.filterList(filterValue);
     $('.bookmark-list').html(views.generateBookmarkItemsString(bookmarkList));
-    console.log(bookmarkList);
   });
 };
 
