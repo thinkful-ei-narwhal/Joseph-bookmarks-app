@@ -26,16 +26,6 @@ function filterList(rating) {
   return filteredItems;
 };
 
-
-// const handleRatingFilter = () => {
-//   $('main').on('change', 'select', () => {
-//     let filterValue = $('option:selected').val();
-//     store.filter = filterValue;
-//     let filteredItems = store.bookmarks.filter(item => item.rating >= store.filter);
-//     console.log(filteredItems);
-//   });
-// };
-
 export default {
   bookmarks,
   addingBookmark,
