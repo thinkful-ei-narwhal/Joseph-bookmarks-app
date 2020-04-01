@@ -50,11 +50,7 @@ const handleExpandBookmarkItem = function() {
     let id = getItemIdFromElement(event.currentTarget);
     let selectedBookmark = store.findById(id);
     selectedBookmark.expanded = !selectedBookmark.expanded;
-    if (selectedBookmark.expanded == false) {
-      $(event.currentTarget).closest('li').html(views.generateCollapsedBookmarkItem(selectedBookmark));
-    } else if (selectedBookmark.expanded == true) {
-      $(event.currentTarget).closest('li').html(views.generateExpandedBookmarkItem(selectedBookmark));
-    }
+    render()
   });
 };
 
@@ -70,7 +66,7 @@ const handleDeleteBookmarkItem = () => {
 };
 
 const render = () => {
-  let items = [...store.bookmarks];
+  let items = store.filterList(store.filter);
   const bookmarkItemsString = views.generateBookmarkItemsString(items);
   $('main').html(views.generateHome(bookmarkItemsString));
 };
