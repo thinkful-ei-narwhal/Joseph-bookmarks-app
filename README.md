@@ -11,3 +11,5 @@ https://thinkful-ei-narwhal.github.io/Joseph-bookmarks-app/
 - Be able to remove bookmarks from the list
 - Receive appropriate feedback to make sure required inputs are filled out
 - Have a dropdown menu to filter by star rating
+
+
