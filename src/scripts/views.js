@@ -27,21 +27,26 @@ const generateHome = (bookmarks) => {
   </ul>`
 };
 
+const generateStarRating = [
+  '<span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>',
+  '<span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>',
+  '<span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>',
+  '<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>',
+  '<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>',
+]
+
 const generateCollapsedBookmarkItem = (bookmark) => {
   return `
   <li class="bookmark-item collapsed-list" data-item-id="${bookmark.id}">
     <h2 class="bookmark-title">${bookmark.title}</h2>
     <div class="bookmark-rating">
-      <div class="rating">
-        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-      </div>
-      ${bookmark.rating}
+      ${generateStarRating[bookmark.rating - 1]}
     </div>
     <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
   </li>`
 };
 
-const generateExpandedBookmarkItem = (bookmark) => {
+const generateExpandedBookmarkItem = function(bookmark) {
   return `
   <li class="bookmark-item expanded-list" data-item-id="${bookmark.id}">
     <h2 class="bookmark-title">${bookmark.title}</h2>
@@ -50,7 +55,7 @@ const generateExpandedBookmarkItem = (bookmark) => {
     </p>
     <a href="${bookmark.url}" target="_blank" class="visit-site-btn">Visit site</a>
     <div class="bookmark-rating">
-      ${bookmark.rating}
+      ${generateStarRating[bookmark.rating - 1]}
     </div>
     <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
   </li>`
@@ -68,18 +73,17 @@ const generateAddBookmarkForm = () => {
         <label for="bookmark-desc">Enter a description</label>
         <textarea id="bookmark-desc" cols="39" rows="5" placeholder="Enter a brief description..." style="resize:none"></textarea>
       </fieldset>
-      <fieldset class="star-rating">
-        <legend>Pick a star rating</legend>
-        <label for="one-star">1</label>
-        <input type="radio" id="one-star" name="stars" value="1" required>
-        <label for="two-stars">2</label>
-        <input type="radio" id="two-stars" name="stars" value="2">
-        <label for="three-stars">3</label>
-        <input type="radio" id="three-stars" name="stars" value="3">
-        <label for="four-stars">4</label>
-        <input type="radio" id="four-stars" name="stars" value="4">
-        <label for="five-stars">5</label>
+      <fieldset class="star-rating">       
         <input type="radio" id="five-stars" name="stars" value="5">
+        <label for="five-stars">5</label>
+        <input type="radio" id="four-stars" name="stars" value="4">
+        <label for="four-stars">4</label>
+        <input type="radio" id="three-stars" name="stars" value="3" checked="checked" required>
+        <label for="three-stars">3</label>
+        <input type="radio" id="two-stars" name="stars" value="2">
+        <label for="two-stars">2</label>
+        <input type="radio" id="one-star" name="stars" value="1">
+        <label for="one-star">1</label>
       </fieldset>
       <button class="add-bookmark-form-btn">
         <span>Add Bookmark</span>
@@ -98,5 +102,5 @@ export default {
   generateCollapsedBookmarkItem,
   generateExpandedBookmarkItem,
   generateAddBookmarkForm,
-  generateBookmarkItemsString
+  generateBookmarkItemsString,
 };

@@ -116,9 +116,14 @@ body {
   padding: 15px 25px;
 }
 
+.bookmark-rating > span {
+  font-size: 22px;
+}
+
 .delete-bookmark-btn {
   background-color: rgb(187, 224, 247);
   padding: 6px;
+  margin-left: 55px;
   border-radius: 50%;
   border: 2px solid #20323D;
   position: relative;
@@ -127,7 +132,6 @@ body {
 }
 
 /* Styling for 5 star rating */
-
 
 
 /* Styling for Add Bookmark form */
@@ -180,4 +184,96 @@ body {
   display: block;
   margin: 25px auto 10px;
   padding: 10px 25px;
+}
+
+/* Styling for star rating in 'add-bookmark-form'*/
+
+.star-rating {
+  float:left;
+}
+
+.star-rating:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.star-rating:not(:checked) > label {
+  float: right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:200%;
+  line-height:1.2;
+  color:#ddd;
+}
+
+.star-rating:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.star-rating > input:checked ~ label {
+  color: gold;
+}
+
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+
+
+.star-rating > input:checked + label:hover,
+.star-rating > input:checked + label:hover ~ label,
+.star-rating > input:checked ~ label:hover,
+.star-rating > input:checked ~ label:hover ~ label,
+.star-rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+}
+
+.star-rating > label:active {
+  position:relative;
+  top:2px;
+  left:2px;
+}
+
+/* Tablet styling */
+
+@media screen and (min-width: 750px) {
+  .container {
+    width: 500px;
+  }
+
+  .dropdown-menu fieldset {
+    margin-left: 155px;
+  }
+
+  .delete-bookmark-btn {
+    margin-left: 200px;
+  }
+
+  .add-bookmark-form-btn {
+    margin-left: 260px;
+  }
+}
+
+/* Laptop styling */
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 750px;
+  }
+
+  .dropdown-menu fieldset {
+    margin-left: 400px;
+  }
+
+  .delete-bookmark-btn {
+    margin-left: 450px;
+  }
+
+  .add-bookmark-form-btn {
+    margin-left: 510px;
+  }
 }

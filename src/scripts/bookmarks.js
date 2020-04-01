@@ -50,7 +50,11 @@ const handleExpandBookmarkItem = function() {
     let id = getItemIdFromElement(event.currentTarget);
     let selectedBookmark = store.findById(id);
     selectedBookmark.expanded = !selectedBookmark.expanded;
-    render();
+    if (selectedBookmark.expanded == false) {
+      $(event.currentTarget).closest('li').html(views.generateCollapsedBookmarkItem(selectedBookmark));
+    } else if (selectedBookmark.expanded == true) {
+      $(event.currentTarget).closest('li').html(views.generateExpandedBookmarkItem(selectedBookmark));
+    }
   });
 };
 
