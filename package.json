@@ -21,7 +21,7 @@
   "homepage": "https://github.com/thinkful-ei-narwhal/Joseph-bookmarks-app#readme",
   "dependencies": {
     "cuid": "^2.1.8",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {
     "css-loader": "^3.4.2",
